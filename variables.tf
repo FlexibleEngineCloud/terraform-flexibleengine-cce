@@ -18,7 +18,7 @@ variable "cluster_desc" {
   default =""
 }
 
-variable "flavor_id" {
+variable "cluster_flavor_id" {
   description = ""
   default     = "cce.s1.small"
 }
