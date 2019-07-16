@@ -1,6 +1,6 @@
 variable "cluster_name" {
   description = "Name of the CCE cluster"
-  default     = "cce-aan-0"
+  default     = "terraform-test"
 }
 
 variable "cluster_type" {
