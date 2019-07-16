@@ -1,8 +1,9 @@
 # Flexible Engine CCE Terraform Module
 
-Terraform module which creates CCE: cluster
+Terraform module which creates CCE: cluster and nodes
 
-## Usage
+# Flexible Engine CCE Cluster Terraform Module
+---
 
 ```hcl
 module "cce2_cluster" {
@@ -21,7 +22,7 @@ module "cce2_cluster" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| cluster\_name | Name of the cluster | string | '"cce-aan-0"' | yes |
+| cluster\_name | Name of the cluster | string | '"terraform-test"' | yes |
 | cluster\_flavor\_id | Flavor/Specifications (max. number of nodes, HA/non-HA,...) of the Cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#flavor_id "Flexible Engine Provider Argument Reference")| string | '"cce.s1.small"' | yes |
 | cluster\_version | Version of the cluster (This value is changing regularly, please refer to API documentation. If not set, the latest version will be used) | string | n/a | no |
 | cluster\_type | Type of the cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#cluster_type "Flexible Engine Provider Argument Reference") | string | '"VirtualMachine"' | yes |
