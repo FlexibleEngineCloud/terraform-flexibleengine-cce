@@ -1,9 +1,8 @@
 # Flexible Engine CCE Terraform Module
 
-Terraform module which creates CCE: cluster and nodes
+Terraform module which creates CCE: cluster
 
-# Flexible Engine CCE Cluster Terraform Module
----
+## Usage
 
 ```hcl
 module "cce2_cluster" {
