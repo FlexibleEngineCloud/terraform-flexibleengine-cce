@@ -21,15 +21,15 @@ module "cce2_cluster" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| cluster\_name | Name of the cluster | string | `"terraform-test"` | yes |
-| cluster\_flavor\_id | Flavor/Specifications (max. number of nodes, HA/non-HA,...) of the Cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#flavor_id "Flexible Engine Provider Argument Reference")| string | `"cce.s1.small"` | yes |
+| cluster\_name | Name of the cluster | string | `"terraform-test"` | no |
+| cluster\_flavor\_id | Flavor/Specifications (max. number of nodes, HA/non-HA,...) of the Cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#flavor_id "Flexible Engine Provider Argument Reference")| string | `"cce.s1.small"` | no |
 | cluster\_version | Version of the cluster (This value is changing regularly, please refer to API documentation. If not set, the latest version will be used) | string | n/a | no |
-| cluster\_type | Type of the cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#cluster_type "Flexible Engine Provider Argument Reference") | string | `"VirtualMachine"` | yes |
+| cluster\_type | Type of the cluster. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#cluster_type "Flexible Engine Provider Argument Reference") | string | `"VirtualMachine"` | no |
 | cluster\_desc | Description of the cluster | string | n/a | no |
 | nodes\_list | List of nodes to deploy in the CCE2 Cluster | list | `<list>` | no |
 | subnet\_id | WARNING: ID of the **Network** to use | string | n/a | yes |
 | vpc\_id | ID of the VPC to use | string | n/a | yes |
-| container\_network\_type | Container network parameters. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#container_network_type "Flexible Engine Provider Argument Reference") | string | `"overlay_l2"` | yes |
+| container\_network\_type | Container network parameters. [Possible values](https://www.terraform.io/docs/providers/flexibleengine/r/cce_cluster_v3.html#container_network_type "Flexible Engine Provider Argument Reference") | string | `"overlay_l2"` | no |
 | availability\_zone | Availability Zone used to deploy | string | `"eu-west-0a"` | no |
 
 
