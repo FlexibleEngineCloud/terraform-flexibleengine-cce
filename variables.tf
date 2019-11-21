@@ -5,7 +5,6 @@ variable "cluster_name" {
 
 variable "cluster_version" {
   description = "Version of the cluster"
-  default     = "v1.13.7-r0"
   type        = string
 }
 
