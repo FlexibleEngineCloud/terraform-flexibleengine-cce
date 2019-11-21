@@ -15,7 +15,7 @@ module "cce2_cluster" {
 
     cluster_flavor = "cce.s1.small"
     vpc_id = "<VPC_ID>"
-    subnet_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
+    network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
  
     nodes_list = [
       {
