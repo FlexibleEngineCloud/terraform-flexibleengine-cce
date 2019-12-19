@@ -16,6 +16,7 @@ module "cce2_cluster" {
     cluster_flavor = "cce.s1.small"
     vpc_id = "<VPC_ID>"
     network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
+    cluster_version = "v1.13.10-r0"
  
     nodes_list = [
       {
@@ -23,7 +24,7 @@ module "cce2_cluster" {
         node_flavor = "s3.large.2"
         key_pair = "my-key"
         root_volume_type = "SATA"
-        root_volume_size = 10
+        root_volume_size = 40
         data_volume_type = "SATA"
         data_volume_size = 100
         labels = {
@@ -36,7 +37,7 @@ module "cce2_cluster" {
         node_flavor = "s3.large.2"
         key_pair = "my-key"
         root_volume_type = "SATA"
-        root_volume_size = 10
+        root_volume_size = 40
         data_volume_type = "SATA"
         data_volume_size = 100
         labels = {
@@ -70,7 +71,7 @@ inputs = {
   cluster_name  = "cce-xxx"
   cluster_desc = "CCEv2 Cluster xxx"
   cluster_flavor = "cce.s1.small"
-  cluster_version = "v1.13.7-r0"
+  cluster_version = "v1.13.10-r0"
   nodes_list = [
     {
       node_name = "cce-xxx-1"
