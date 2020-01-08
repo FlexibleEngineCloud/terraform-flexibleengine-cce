@@ -18,7 +18,7 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   cluster_id        = flexibleengine_cce_cluster_v3.cce_cluster.id
   name              = var.nodes_list[count.index]["node_name"]
   flavor_id         = var.nodes_list[count.index]["node_flavor"]
-  availability_zone = var.availability_zone
+  availability_zone = var.nodes_list[count.index]["availability_zone"]
   key_pair          = var.nodes_list[count.index]["key_pair"]
   labels            = var.nodes_list[count.index]["labels"]
   annotations       = var.nodes_list[count.index]["annotations"]
