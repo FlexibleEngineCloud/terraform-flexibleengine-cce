@@ -46,16 +46,16 @@ variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
   type = list(object({
-    node_name        = string
-    node_flavor      = string
-    key_pair         = string
+    node_name         = string
+    node_flavor       = string
+    key_pair          = string
     availability_zone = string
-    labels           = map(string)
-    annotations      = map(string)
-    root_volume_size = number
-    root_volume_type = string
-    data_volume_size = number
-    data_volume_type = string
+    labels            = map(string)
+    annotations       = map(string)
+    root_volume_size  = number
+    root_volume_type  = string
+    data_volume_size  = number
+    data_volume_type  = string
   }))
 }
 
