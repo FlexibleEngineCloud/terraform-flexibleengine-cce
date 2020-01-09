@@ -42,6 +42,11 @@ variable "network_id" {
   type        = string
 }
 
+variable "node_os" {
+  description = "Operating System of the CCE Worker Node"
+  type        = string
+}
+
 variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
@@ -50,8 +55,6 @@ variable "nodes_list" {
     node_flavor       = string
     key_pair          = string
     availability_zone = string
-    labels            = map(string)
-    annotations       = map(string)
     root_volume_size  = number
     root_volume_type  = string
     data_volume_size  = number
