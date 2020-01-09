@@ -21,10 +21,6 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   os                = var.node_os
   availability_zone = var.nodes_list[count.index]["availability_zone"]
   key_pair          = var.nodes_list[count.index]["key_pair"]
-  labels            = {}
-  annotations = {
-    "kubernetes.io/node-pool.id" = "${var.nodes_list[count.index]["availability_zone"]}#${var.nodes_list[count.index]["node_flavor"]}#${var.node_os}"
-  }
 
   root_volume {
     size       = var.nodes_list[count.index]["root_volume_size"]
