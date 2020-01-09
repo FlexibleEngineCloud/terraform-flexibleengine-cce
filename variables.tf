@@ -49,6 +49,7 @@ variable "nodes_list" {
     node_name        = string
     node_flavor      = string
     key_pair         = string
+    availability_zone = string
     labels           = map(string)
     annotations      = map(string)
     root_volume_size = number
