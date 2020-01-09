@@ -24,6 +24,7 @@ module "cce2_cluster" {
       {
         node_name = "test_node1"
         node_flavor = "s3.large.2"
+        availability_zone = "eu-west-0a"
         key_pair = "my-key"
         root_volume_type = "SATA"
         root_volume_size = 40
@@ -33,6 +34,7 @@ module "cce2_cluster" {
       {
         node_name = "test_node2"
         node_flavor = "s3.large.2"
+        availability_zone = "eu-west-0a"
         key_pair = "my-key"
         root_volume_type = "SATA"
         root_volume_size = 40
@@ -66,10 +68,13 @@ inputs = {
   cluster_desc = "CCEv2 Cluster xxx"
   cluster_flavor = "cce.s1.small"
   cluster_version = "v1.13.10-r0"
+  node_os = "EulerOS 2.5" // Can be "EulerOS 2.5" or "CentOS 7.6"
+
   nodes_list = [
     {
       node_name = "cce-xxx-1"
       node_flavor = "s3.xlarge.2"
+      availability_zone = "eu-west-0a"
       key_pair = "xxx-key"
       root_volume_type = "SATA"
       root_volume_size = 40
@@ -79,6 +84,7 @@ inputs = {
     {
       node_name = "cce-xxx-2"
       node_flavor = "s3.xlarge.2"
+      availability_zone = "eu-west-0a"
       key_pair = "xxx-key"
       root_volume_type = "SATA"
       root_volume_size = 40
@@ -92,6 +98,7 @@ inputs = {
     {
       node_name = "cce-xxx-3"
       node_flavor = "s3.xlarge.2"
+      availability_zone = "eu-west-0a"
       key_pair = "xxx-key"
       root_volume_type = "SATA"
       root_volume_size = 40
