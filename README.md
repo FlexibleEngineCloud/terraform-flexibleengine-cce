@@ -17,6 +17,8 @@ module "cce2_cluster" {
     vpc_id = "<VPC_ID>"
     network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
     cluster_version = "v1.13.10-r0"
+
+    node_os = "EulerOS 2.5" // Can be "EulerOS 2.5" or "CentOS 7.6"
  
     nodes_list = [
       {
@@ -27,10 +29,6 @@ module "cce2_cluster" {
         root_volume_size = 40
         data_volume_type = "SATA"
         data_volume_size = 100
-        labels = {
-          type = "test"
-        }
-        annotations = {}
       },
       {
         node_name = "test_node2"
@@ -40,10 +38,6 @@ module "cce2_cluster" {
         root_volume_size = 40
         data_volume_type = "SATA"
         data_volume_size = 100
-        labels = {
-          type = "test"
-        }
-        annotations = {}
       }
     ]
 }
@@ -81,10 +75,6 @@ inputs = {
       root_volume_size = 40
       data_volume_type = "SATA"
       data_volume_size = 100
-      labels = {
-        type = "xxx"
-      }
-      annotations = {}
     },
     {
       node_name = "cce-xxx-2"
@@ -107,10 +97,6 @@ inputs = {
       root_volume_size = 40
       data_volume_type = "SATA"
       data_volume_size = 100
-      labels = {
-        type = "xxx"
-      }
-      annotations = {}
     }
   ]
 }
@@ -124,7 +110,8 @@ inputs = {
 | cluster\_desc | Description of the cluster | string | n/a | yes |
 | cluster\_flavor | Flavor of the CCE2 Cluster to deploy | string | n/a | yes |
 | cluster\_name | Name of the cluster | string | n/a | yes |
-| nodes\_list | List of nodes to deploy in the CCE2 Cluster | list(object(node_name(string), node_flavor(string), key_pair(string), labels(map(string)), annotations(map(string)), root_volume_size(number), root_volume_type(string), data_volume_size(number), data_volume_type)) | `<list>` | no |
+| node\_os | Operating System of the CCE Worker Node | n/a | n/a | yes |
+| nodes\_list | List of nodes to deploy in the CCE2 Cluster | list(object(node_name(string), node_flavor(string), key_pair(string), availability_zone(string), root_volume_size(number), root_volume_type(string), data_volume_size(number), data_volume_type)) | `<list>` | no |
 | network\_id | ID of the network to use | string | n/a | yes |
 | vpc\_id | ID of the VPC to use | string | n/a | yes |
 

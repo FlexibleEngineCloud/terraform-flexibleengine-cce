@@ -42,19 +42,23 @@ variable "network_id" {
   type        = string
 }
 
+variable "node_os" {
+  description = "Operating System of the CCE Worker Node"
+  type        = string
+}
+
 variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
   type = list(object({
-    node_name        = string
-    node_flavor      = string
-    key_pair         = string
-    labels           = map(string)
-    annotations      = map(string)
-    root_volume_size = number
-    root_volume_type = string
-    data_volume_size = number
-    data_volume_type = string
+    node_name         = string
+    node_flavor       = string
+    key_pair          = string
+    availability_zone = string
+    root_volume_size  = number
+    root_volume_type  = string
+    data_volume_size  = number
+    data_volume_type  = string
   }))
 }
 
