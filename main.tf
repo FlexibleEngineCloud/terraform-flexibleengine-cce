@@ -31,5 +31,10 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     size       = var.nodes_list[count.index]["data_volume_size"]
     volumetype = var.nodes_list[count.index]["data_volume_type"]
   }
+  
+  lifecycle {
+    create_before_destroy = true
+    ignore_changes        = [annotations, labels]
+  }
 }
 
