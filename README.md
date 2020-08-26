@@ -2,14 +2,14 @@
 
 Terraform module for deploying a CCEv2 cluster.
 
-## TF version : 0.12
+## TF version : 0.13
 
 ## Terraform format
 ```hcl
 module "cce2_cluster" {
   source = "github.com/terraform-flexibleengine-modules/terraform-flexibleengine-cce?ref=v1.0.0"
 
-    cluster_name  = "cluster_test"
+    cluster_name  = "cluster-test"
     cluster_desc = " Cluster for testing purpose"
     availability_zone = "eu-west-0a"
 
@@ -22,7 +22,7 @@ module "cce2_cluster" {
  
     nodes_list = [
       {
-        node_name = "test_node1"
+        node_name = "test-node1"
         node_flavor = "s3.large.2"
         availability_zone = "eu-west-0a"
         key_pair = "my-key"
@@ -32,7 +32,7 @@ module "cce2_cluster" {
         data_volume_size = 100
       },
       {
-        node_name = "test_node2"
+        node_name = "test-node2"
         node_flavor = "s3.large.2"
         availability_zone = "eu-west-0a"
         key_pair = "my-key"
