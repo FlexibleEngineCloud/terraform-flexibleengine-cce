@@ -1,7 +1,3 @@
-terraform {
-  required_version = ">= 0.12.0"
-}
-
 resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   name                   = var.cluster_name
   cluster_type           = "VirtualMachine"
