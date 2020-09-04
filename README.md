@@ -7,8 +7,8 @@ Terraform module for deploying a CCEv2 cluster.
 ## Terraform format
 ```hcl
 module "cce2_cluster" {
-  source = "github.com/terraform-flexibleengine-modules/terraform-flexibleengine-cce?ref=v1.0.0"
-
+    source = "FlexibleEngineCloud/elb/flexibleengine"
+ 
     cluster_name  = "cluster-test"
     cluster_desc = " Cluster for testing purpose"
     availability_zone = "eu-west-0a"
