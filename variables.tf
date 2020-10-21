@@ -60,6 +60,7 @@ variable "nodes_list" {
     data_volume_size  = number
     data_volume_type  = string
     node_labels       = map(string)
+    vm_tags           = map(string)
   }))
 }
 
