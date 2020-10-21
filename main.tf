@@ -18,6 +18,8 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   availability_zone = var.nodes_list[count.index]["availability_zone"]
   key_pair          = var.nodes_list[count.index]["key_pair"]
 
+  labels       = var.node_labels
+
   root_volume {
     size       = var.nodes_list[count.index]["root_volume_size"]
     volumetype = var.nodes_list[count.index]["root_volume_type"]

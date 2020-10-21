@@ -59,6 +59,7 @@ variable "nodes_list" {
     root_volume_type  = string
     data_volume_size  = number
     data_volume_type  = string
+    node_labels       = map(string)
   }))
 }
 
