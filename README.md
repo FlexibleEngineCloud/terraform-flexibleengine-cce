@@ -33,9 +33,9 @@ module "cce2_cluster" {
     cluster_flavor = "cce.s1.small"
     vpc_id = "<VPC_ID>"
     network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
-    cluster_version = "v1.13.10-r0"
+    cluster_version = "v1.15.6-r1"
 
-    node_os = "EulerOS 2.5" // Can be "EulerOS 2.5" or "CentOS 7.6"
+    node_os = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
  
     nodes_list = [
       {
@@ -53,7 +53,7 @@ module "cce2_cluster" {
       {
         node_name = "new-node2"
         node_flavor = "s3.large.2"
-        availability_zone = "eu-west-0a"
+        availability_zone = "eu-west-0b"
         key_pair = "my-key"
         root_volume_type = "SATA"
         root_volume_size = 40
@@ -93,8 +93,8 @@ inputs = {
   cluster_name  = "cluster-test"
   cluster_desc = "Cluster for testing purpose"
   cluster_flavor = "cce.s1.small"
-  cluster_version = "v1.13.10-r0"
-  node_os = "EulerOS 2.5" // Can be "EulerOS 2.5" or "CentOS 7.6"
+  cluster_version = "v1.15.6-r1"
+  node_os = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
 
   nodes_list = [
     {
