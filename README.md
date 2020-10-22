@@ -12,22 +12,22 @@ Terraform module for deploying a CCEv2 cluster.
 > **Note #1**
 >
 > Two additionnal parameters:
-> - vm_tags: Tag at Flexible Engine level
-> - node_label: Kubernetes Node Label (to apply a Pod placement constraint with the NodeSelector setting in Kubernetes manifest for instance)
+> - `vm_tags`: Tag at Flexible Engine level
+> - `node_label`: Kubernetes Node Label (to apply a Pod placement constraint with the NodeSelector setting in Kubernetes manifest for instance)
 >
 > These two parameters are mandatory but can be empty with this module
 >
-> Please add these two parameters to each of the node in the node_list parameters as shown bellow.
+> Please add these two parameters to each of the node in the `nodes_list` parameters as shown bellow.
 >
->  Add vm_tags does not recreate the node
+>  Add `vm_tags` does not recreate the node
 >
-> Add node_labels recreate the node so even if the current nodes does not have any lables, please do not forget to add node_labels set it empty like the bellow example.
+> Add `node_labels` recreate the node so even if the current nodes does not have any labels, please do not forget to add `node_labels` set it empty like the bellow example.
 
 > **Note #2**
 >
 >  CCE Node SSH Key pair is now a global parameter (was a specific node configuratin parameter before)
 >
-> Please comment out the key_pair parameters of the existing nodes and declare key_pair parameter as a global as shown in the examples bellow.
+> Please comment out the `key_pair` parameters of the existing nodes and declare `key_pair` parameter as a global as shown in the examples bellow.
 
 ## Terraform format
 ```hcl
