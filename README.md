@@ -7,7 +7,9 @@ Terraform module for deploying a CCEv2 cluster.
 
 ## Module Version
 
-> **Important Note regarding new module version**
+> **Important Notes regarding new module version (as of v2.1.0)**
+
+> **Note #1**
 >
 > Two additionnal parameters:
 > - vm_tags: Tag at Flexible Engine level
@@ -20,6 +22,12 @@ Terraform module for deploying a CCEv2 cluster.
 >  Add vm_tags does not recreate the node
 >
 > Add node_labels recreate the node so even if the current nodes does not have any lables, please do not forget to add node_labels set it empty like the bellow example.
+
+> **Note #2**
+>
+>  CCE Node SSH Key pair is now a global parameter (was a specific node configuratin parameter before)
+>
+> Please comment out the key_pair parameters of the existing nodes and declare key_pair parameter as a global as shown in the examples bellow.
 
 ## Terraform format
 ```hcl
@@ -35,14 +43,15 @@ module "cce2_cluster" {
     network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
     cluster_version = "v1.15.6-r1"
 
-    node_os = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+    node_os  = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+    key_pair = "my-key"
  
     nodes_list = [
       {
         node_name = "existing-node1"
         node_flavor = "s3.large.2"
         availability_zone = "eu-west-0a"
-        key_pair = "my-key"
+        # key_pair = "my-key" # Key pair paramters moved to global parameter
         root_volume_type = "SATA"
         root_volume_size = 40
         data_volume_type = "SATA"
@@ -54,7 +63,6 @@ module "cce2_cluster" {
         node_name = "new-node2"
         node_flavor = "s3.large.2"
         availability_zone = "eu-west-0b"
-        key_pair = "my-key"
         root_volume_type = "SATA"
         root_volume_size = 40
         data_volume_type = "SATA"
@@ -94,14 +102,15 @@ inputs = {
   cluster_desc = "Cluster for testing purpose"
   cluster_flavor = "cce.s1.small"
   cluster_version = "v1.15.6-r1"
-  node_os = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+  node_os  = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+  key_pair = "my-key"
 
   nodes_list = [
     {
       node_name = "existing-node-1"
       node_flavor = "s3.xlarge.2"
       availability_zone = "eu-west-0a"
-      key_pair = "xxx-key"
+      # key_pair = "my-key" # Key pair paramters moved to global parameter
       root_volume_type = "SATA"
       root_volume_size = 40
       data_volume_type = "SATA"
@@ -112,8 +121,7 @@ inputs = {
     {
       node_name = "new-node-2"
       node_flavor = "s3.xlarge.2"
-      availability_zone = "eu-west-0a"
-      key_pair = "xxx-key"
+      availability_zone = "eu-west-0a" 
       root_volume_type = "SATA"
       root_volume_size = 40
       data_volume_type = "SATA"
@@ -151,9 +159,10 @@ inputs = {
 | cluster\_flavor | Flavor of the CCE2 Cluster | `string` | n/a | yes |
 | cluster\_name | Name of the cluster | `string` | n/a | yes |
 | cluster\_version | Version of the cluster | `string` | n/a | yes |
+| key\_pair | Name of the SSH key pair | `string` | n/a | yes |
 | network\_id | ID of the Network | `string` | n/a | yes |
 | node\_os | Operating System of the CCE Worker Node | `string` | n/a | yes |
-| nodes\_list | Nodes list of the CCE2 Cluster | <pre>list(object({<br>    node_name         = string<br>    node_flavor       = string<br>    key_pair          = string<br>    availability_zone = string<br>    root_volume_size  = number<br>    root_volume_type  = string<br>    data_volume_size  = number<br>    data_volume_type  = string<br>    node_labels       = map(string)<br>    vm_tags           = map(string)<br>  }))</pre> | `[]` | no |
+| nodes\_list | Nodes list of the CCE2 Cluster | <pre>list(object({<br>    node_name         = string<br>    node_flavor       = string<br>    availability_zone = string<br>    root_volume_size  = number<br>    root_volume_type  = string<br>    data_volume_size  = number<br>    data_volume_type  = string<br>    node_labels       = map(string)<br>    vm_tags           = map(string)<br>  }))</pre> | `[]` | no |
 | vpc\_id | ID of the VPC | `string` | n/a | yes |
 
 ## Outputs
