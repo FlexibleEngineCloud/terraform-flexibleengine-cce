@@ -16,7 +16,10 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   flavor_id         = var.nodes_list[count.index]["node_flavor"]
   os                = var.node_os
   availability_zone = var.nodes_list[count.index]["availability_zone"]
-  key_pair          = var.nodes_list[count.index]["key_pair"]
+  key_pair          = var.key_pair
+
+  labels = var.nodes_list[count.index]["node_labels"]
+  tags   = var.nodes_list[count.index]["vm_tags"]
 
   root_volume {
     size       = var.nodes_list[count.index]["root_volume_size"]

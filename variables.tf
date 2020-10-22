@@ -47,18 +47,24 @@ variable "node_os" {
   type        = string
 }
 
+variable "key_pair" {
+  description = "Name of the SSH key pair"
+  type        = string
+}
+
 variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
   type = list(object({
     node_name         = string
     node_flavor       = string
-    key_pair          = string
     availability_zone = string
     root_volume_size  = number
     root_volume_type  = string
     data_volume_size  = number
     data_volume_type  = string
+    node_labels       = map(string)
+    vm_tags           = map(string)
   }))
 }
 
