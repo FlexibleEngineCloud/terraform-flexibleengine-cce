@@ -32,7 +32,8 @@ Terraform module for deploying a CCEv2 cluster.
 ## Terraform format
 ```hcl
 module "cce2_cluster" {
-    source = "FlexibleEngineCloud/elb/flexibleengine"
+    source = "FlexibleEngineCloud/cce/flexibleengine"
+    version = "2.1.0"
  
     cluster_name  = "cluster-test"
     cluster_desc = " Cluster for testing purpose"
@@ -51,7 +52,7 @@ module "cce2_cluster" {
         node_name = "existing-node1"
         node_flavor = "s3.large.2"
         availability_zone = "eu-west-0a"
-        # key_pair = "my-key" # Key pair paramters moved to global parameter
+        # key_pair = "my-key" # Key pair parameter moved to global parameter
         root_volume_type = "SATA"
         root_volume_size = 40
         data_volume_type = "SATA"
@@ -86,7 +87,8 @@ module "cce2_cluster" {
 ################################
 
 terraform {
-  source = "git::git@github.com:terraform-flexibleengine-modules/terraform-flexibleengine-cce.git?ref=v1.0.0"
+    source = "FlexibleEngineCloud/cce/flexibleengine"
+    version = "2.1.0"
 }
 
 include {
@@ -110,7 +112,7 @@ inputs = {
       node_name = "existing-node-1"
       node_flavor = "s3.xlarge.2"
       availability_zone = "eu-west-0a"
-      # key_pair = "my-key" # Key pair paramters moved to global parameter
+      # key_pair = "my-key" # Key pair parameter moved to global parameter
       root_volume_type = "SATA"
       root_volume_size = 40
       data_volume_type = "SATA"
