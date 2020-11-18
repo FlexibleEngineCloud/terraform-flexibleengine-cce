@@ -17,6 +17,8 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   os                = var.node_os
   availability_zone = var.nodes_list[count.index]["availability_zone"]
   key_pair          = var.key_pair
+  postinstall       = var.nodes_list[count.index]["postinstall_script"]
+  preinstall        = var.nodes_list[count.index]["preinstall_script"]
 
   labels = var.nodes_list[count.index]["node_labels"]
   tags   = var.nodes_list[count.index]["vm_tags"]

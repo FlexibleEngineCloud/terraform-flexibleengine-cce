@@ -29,11 +29,15 @@ Terraform module for deploying a CCEv2 cluster.
 >
 > Please comment out the `key_pair` parameters of the existing nodes and declare `key_pair` parameter as a global as shown in the examples bellow.
 
+> **Important Note regarding new module version (as of v2.2.0)**
+
+> Now you need to add two parameters on the node configuration `postinstall_script` and `preinstall_script`. If you don't use this parameters, set the value to null as the example below.
+
 ## Terraform format
 ```hcl
 module "cce2_cluster" {
     source = "FlexibleEngineCloud/cce/flexibleengine"
-    version = "2.1.0"
+    version = "2.2.0"
  
     cluster_name  = "cluster-test"
     cluster_desc = " Cluster for testing purpose"
@@ -59,6 +63,8 @@ module "cce2_cluster" {
         data_volume_size = 100
         node_labels       = {} # this paramters si to be set empty for an existing node
         vm_tags           = {} # this parameters can added to an existing node
+        postinstall_script =  null
+        preinstall_script = null
       },
       {
         node_name = "new-node2"
@@ -75,6 +81,8 @@ module "cce2_cluster" {
           Owner = "Me"
           Env = "Prod"
         }
+        postinstall_script =  null
+        preinstall_script = null
       }
     ]
 }
@@ -119,6 +127,8 @@ inputs = {
       data_volume_size = 100
       node_labels       = {} # this paramters si to be set empty for an existing node
       vm_tags           = {} # this parameters can added to an existing node
+      postinstall_script =  null
+      preinstall_script = null
     },
     {
       node_name = "new-node-2"
@@ -135,6 +145,8 @@ inputs = {
         Owner = "Me"
         Env = "Prod"
       }
+      postinstall_script =  null
+      preinstall_script = null
     }
   ]
 }
@@ -164,7 +176,7 @@ inputs = {
 | key\_pair | Name of the SSH key pair | `string` | n/a | yes |
 | network\_id | ID of the Network | `string` | n/a | yes |
 | node\_os | Operating System of the CCE Worker Node | `string` | n/a | yes |
-| nodes\_list | Nodes list of the CCE2 Cluster | <pre>list(object({<br>    node_name         = string<br>    node_flavor       = string<br>    availability_zone = string<br>    root_volume_size  = number<br>    root_volume_type  = string<br>    data_volume_size  = number<br>    data_volume_type  = string<br>    node_labels       = map(string)<br>    vm_tags           = map(string)<br>  }))</pre> | `[]` | no |
+| nodes\_list | Nodes list of the CCE2 Cluster | <pre>list(object({<br>    node_name         = string<br>    node_flavor       = string<br>    availability_zone = string<br>    root_volume_size  = number<br>    root_volume_type  = string<br>    data_volume_size  = number<br>    data_volume_type  = string<br>    node_labels       = map(string)<br>    vm_tags           = map(string)<br>    postinstall_script= string<br>    preinstall_script = string<br>  }))</pre> | `[]` | no |
 | vpc\_id | ID of the VPC | `string` | n/a | yes |
 
 ## Outputs
