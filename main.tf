@@ -34,6 +34,15 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     volumetype = var.nodes_list[count.index]["data_volume_type"]
   }
 
+  dynamic "taints" {
+    for_each = var.nodes_list[count.index]["taints"]
+    content {
+      key    = taints.value.key
+      value  = taints.value.value
+      effect = taints.value.effect
+    }
+  }
+
   lifecycle {
     create_before_destroy = true
     ignore_changes        = [annotations, labels]
