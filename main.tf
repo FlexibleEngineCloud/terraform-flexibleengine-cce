@@ -37,9 +37,9 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   dynamic "taints" {
     for_each = var.nodes_list[count.index]["taints"]
     content {
-      key    = taints.value.key
-      value  = taints.value.value
-      effect = taints.value.effect
+      key    = var.nodes_list[count.index]["taints"].value.key
+      value  = var.nodes_list[count.index]["taints"].value.value
+      effect = var.nodes_list[count.index]["taints"].value.effect
     }
   }
 
