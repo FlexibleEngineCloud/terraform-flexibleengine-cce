@@ -41,6 +41,12 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     effect  = "NoSchedule"
   }
 
+  taints {
+    key = "titi"
+    value = "titi"
+    effect  = "NoSchedule"
+  }
+
 
   lifecycle {
     create_before_destroy = true
