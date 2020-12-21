@@ -34,7 +34,12 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     volumetype = var.nodes_list[count.index]["data_volume_type"]
   }
 
-  taints = var.nodes_list[count.index]["taints"]
+  # taints = var.nodes_list[count.index]["taints"]
+  taints {
+    key = "toto"
+    value = "toto"
+    effect  = "NoSchedule"
+  }
 
 
   lifecycle {
