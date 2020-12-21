@@ -35,17 +35,17 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   }
 
   # taints = var.nodes_list[count.index]["taints"]
-  taints {
-    key = "toto"
-    value = "toto"
-    effect  = "NoSchedule"
-  }
+  # taints {
+  #   key = "toto"
+  #   value = "toto"
+  #   effect  = "NoSchedule"
+  # }
 
-  taints {
-    key = "titi"
-    value = "titi"
-    effect  = "NoSchedule"
-  }
+  # taints {
+  #   key = "titi"
+  #   value = "titi"
+  #   effect  = "NoSchedule"
+  # }
 
   dynamic "taints" {
     for_each = var.nodes_list[count.index]["taints"]
