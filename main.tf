@@ -6,6 +6,7 @@ resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   vpc_id                 = var.vpc_id
   subnet_id              = var.network_id
   container_network_type = "overlay_l2"
+  eip                    = var.cluster_eip
   description            = var.cluster_desc
 }
 

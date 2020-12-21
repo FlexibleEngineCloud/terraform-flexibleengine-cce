@@ -13,6 +13,12 @@ variable "cluster_desc" {
   type        = string
 }
 
+variable "cluster_eip" {
+  description = "EIP of the cluster"
+  type        = string
+  default     = null
+}
+
 variable "availability_zone" {
   description = "Availability Zone used to deploy"
   default     = "eu-west-0a"
