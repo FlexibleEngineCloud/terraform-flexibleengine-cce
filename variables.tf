@@ -81,3 +81,30 @@ variable "nodes_list" {
   }))
 }
 
+variable "node_pool_list" {
+  description = "Nodes poool list of the CCE2 Cluster"
+  default     = []
+  type = list(object({
+    node_pool_name           = string
+    node_flavor              = string
+    availability_zone        = string
+    initial_node_count       = number
+    scall_enable             = bool
+    min_node_count           = number
+    max_node_count           = number
+    scale_down_cooldown_time = number
+    priority                 = number
+    root_volume_size         = number
+    root_volume_type         = string
+    data_volume_size         = number
+    data_volume_type         = string
+    node_labels              = map(string)
+    taints = list(object({
+      key    = string
+      value  = string
+      effect = string
+    }))
+    postinstall_script = string
+    preinstall_script  = string
+  }))
+}
