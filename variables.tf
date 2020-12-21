@@ -71,11 +71,7 @@ variable "nodes_list" {
     data_volume_type  = string
     node_labels       = map(string)
     vm_tags           = map(string)
-    taints = list(object({
-      key    = string
-      value  = string
-      effect = string
-    }))
+    taints = list(map(string))
     postinstall_script = string
     preinstall_script  = string
   }))
