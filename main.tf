@@ -34,14 +34,8 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     volumetype = var.nodes_list[count.index]["data_volume_type"]
   }
 
-  dynamic "taints" {
-    for_each = var.nodes_list[count.index]["taints"]
-    content {
-      key    = var.nodes_list[count.index]["taints"].value.key
-      value  = var.nodes_list[count.index]["taints"].value.value
-      effect = var.nodes_list[count.index]["taints"].value.effect
-    }
-  }
+  taints = var.nodes_list[count.index]["taints"]
+
 
   lifecycle {
     create_before_destroy = true
