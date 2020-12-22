@@ -62,6 +62,7 @@ variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
   type = list(object({
+    node_index        = string
     node_name         = string
     node_flavor       = string
     availability_zone = string
