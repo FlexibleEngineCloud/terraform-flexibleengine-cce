@@ -11,9 +11,8 @@ resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
 }
 
 locals {
-
-  nodes_list_keys   = [for nodes in var.nodes_list : nodes.node_index]
-  nodes_list_values = [for nodes in var.nodes_list : nodes]
+  nodes_list_keys   = [for node in var.nodes_list : node.node_index]
+  nodes_list_values = [for node in var.nodes_list : node]
   nodes_list_map    = zipmap(local.nodes_list_keys, local.nodes_list_values)
 
   node_pool_list_keys   = [for node_pool in var.node_pool_list : node_pool.node_pool_index]
@@ -22,7 +21,7 @@ locals {
 }
 
 resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
-  for_each = local.node_pool_list_map
+  for_each = local.nodes_list_map
 
   cluster_id        = flexibleengine_cce_cluster_v3.cce_cluster.id
   name              = each.value.node_name
