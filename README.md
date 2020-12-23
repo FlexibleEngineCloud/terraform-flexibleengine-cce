@@ -5,9 +5,9 @@ Terraform module for deploying a CCEv2 cluster.
 
 ## Module Version
 
-- v2.3.0: please read carrefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.3.0
-- v2.2.0: please read carrefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.2.0
-- v2.1.0: please read carrefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.1.0
+- v2.3.0: **compatibility break!!** please read carefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.3.0
+- v2.2.0: please read carefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.2.0
+- v2.1.0: please read carefuly the release note https://github.com/FlexibleEngineCloud/terraform-flexibleengine-cce/releases/tag/v2.1.0
 
 ## Terraform format
 ```hcl
