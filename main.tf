@@ -23,16 +23,16 @@ locals {
 resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   for_each = local.nodes_list_map
 
-  cluster_id        = flexibleengine_cce_cluster_v3.cce_cluster.id
-  name              = each.value.node_name
-  flavor_id         = each.value.node_flavor
-  os                = var.node_os
+  cluster_id = flexibleengine_cce_cluster_v3.cce_cluster.id
+  name       = each.value.node_name
+  flavor_id  = each.value.node_flavor
+  os         = var.node_os
 
   availability_zone = each.value.availability_zone
   key_pair          = var.key_pair
 
-  postinstall       = each.value.postinstall_script
-  preinstall        = each.value.preinstall_script
+  postinstall = each.value.postinstall_script
+  preinstall  = each.value.preinstall_script
 
   labels = each.value.node_labels
   tags   = each.value.vm_tags
