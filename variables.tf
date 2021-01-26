@@ -58,6 +58,11 @@ variable "key_pair" {
   type        = string
 }
 
+variable "extend_param" {
+  description = "Extended Parameters"
+  type        = map(string)
+}
+
 variable "nodes_list" {
   description = "Nodes list of the CCE2 Cluster"
   default     = []
