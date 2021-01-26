@@ -61,6 +61,7 @@ variable "key_pair" {
 variable "extend_param" {
   description = "Extended Parameters"
   type        = map(string)
+  default     = {}
 }
 
 variable "nodes_list" {
