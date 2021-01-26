@@ -8,7 +8,7 @@ resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   container_network_type = "overlay_l2"
   eip                    = var.cluster_eip
   description            = var.cluster_desc
-  extendParam            = var.extend_param
+  extend_param           = var.extend_param
 }
 
 locals {
