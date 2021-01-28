@@ -2,14 +2,17 @@ module "cce2_cluster" {
   source  = "FlexibleEngineCloud/cce/flexibleengine"
   version = "2.3.1"
 
-  cluster_name      = "cluster-test"
-  cluster_desc      = " Cluster for testing purpose"
-  availability_zone = "eu-west-0a"
+  cluster_name = "cluster-test"
+  cluster_desc = " Cluster for testing purpose"
 
-  cluster_flavor  = "cce.s1.small"
+  cluster_flavor  = "cce.s2.small"
   vpc_id          = "<VPC_ID>"
   network_id      = "<NETWORK_ID>" //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
   cluster_version = "v1.15.6-r1"
+  extend_param = {
+    clusterAZ = "multi_az"
+  }
+
 
   node_os  = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
   key_pair = "<SSH_KEY_NAME>"
@@ -26,7 +29,7 @@ module "cce2_cluster" {
       data_volume_size   = 100
       node_labels        = {}
       vm_tags            = {}
-      postinstall_script = data.template_file.test.rendered
+      postinstall_script = null
       preinstall_script  = null
       taints             = []
     }

@@ -8,6 +8,7 @@ resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   container_network_type = "overlay_l2"
   eip                    = var.cluster_eip
   description            = var.cluster_desc
+  extend_param           = var.extend_param
 }
 
 locals {
@@ -61,47 +62,6 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
     ignore_changes        = [annotations, labels]
   }
 }
-
-# resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
-#   count             = length(var.nodes_list)
-#   cluster_id        = flexibleengine_cce_cluster_v3.cce_cluster.id
-#   name              = var.nodes_list[count.index]["node_name"]
-#   flavor_id         = var.nodes_list[count.index]["node_flavor"]
-#   os                = var.node_os
-#   availability_zone = var.nodes_list[count.index]["availability_zone"]
-#   key_pair          = var.key_pair
-#   postinstall       = var.nodes_list[count.index]["postinstall_script"]
-#   preinstall        = var.nodes_list[count.index]["preinstall_script"]
-
-#   labels = var.nodes_list[count.index]["node_labels"]
-#   tags   = var.nodes_list[count.index]["vm_tags"]
-
-#   root_volume {
-#     size       = var.nodes_list[count.index]["root_volume_size"]
-#     volumetype = var.nodes_list[count.index]["root_volume_type"]
-#   }
-
-#   data_volumes {
-#     size       = var.nodes_list[count.index]["data_volume_size"]
-#     volumetype = var.nodes_list[count.index]["data_volume_type"]
-#   }
-
-#   dynamic "taints" {
-#     for_each = var.nodes_list[count.index]["taints"]
-#     content {
-#       key    = taints.value.key
-#       value  = taints.value.value
-#       effect = taints.value.effect
-#     }
-#   }
-
-#   lifecycle {
-#     create_before_destroy = true
-#     ignore_changes        = [annotations, labels]
-#   }
-# }
-
-
 
 resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   for_each = local.node_pool_list_map

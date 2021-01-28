@@ -17,7 +17,6 @@ module "cce2_cluster" {
  
     cluster_name  = "cluster-test"
     cluster_desc = " Cluster for testing purpose"
-    availability_zone = "eu-west-0a"
 
     cluster_flavor = "cce.s1.small"
     vpc_id = "<VPC_ID>"
@@ -264,6 +263,8 @@ inputs = {
 
 ## Inputs
 
+## Inputs
+
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | availability\_zone | Availability Zone used to deploy | `string` | `"eu-west-0a"` | no |
@@ -272,6 +273,7 @@ inputs = {
 | cluster\_flavor | Flavor of the CCE2 Cluster | `string` | n/a | yes |
 | cluster\_name | Name of the cluster | `string` | n/a | yes |
 | cluster\_version | Version of the cluster | `string` | n/a | yes |
+| extend\_param | Extended Parameters | `map(string)` | `{}` | no |
 | key\_pair | Name of the SSH key pair | `string` | n/a | yes |
 | network\_id | ID of the Network | `string` | n/a | yes |
 | node\_os | Operating System of the CCE Worker Node | `string` | n/a | yes |
