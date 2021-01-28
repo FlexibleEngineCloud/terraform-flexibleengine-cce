@@ -1,6 +1,6 @@
 module "cce2_cluster" {
   source  = "FlexibleEngineCloud/cce/flexibleengine"
-  version = "2.2.0"
+  version = "2.3.1"
 
   cluster_name      = "cluster-test"
   cluster_desc      = " Cluster for testing purpose"
@@ -16,17 +16,19 @@ module "cce2_cluster" {
 
   nodes_list = [
     {
-      node_name          = "new-node1"
+      node_index         = "node0"
+      node_name          = "cce-node1"
       node_flavor        = "s3.large.2"
       availability_zone  = "eu-west-0a"
       root_volume_type   = "SATA"
       root_volume_size   = 40
       data_volume_type   = "SATA"
       data_volume_size   = 100
-      node_labels        = null # this paramters si to be set empty for an existing node
-      vm_tags            = null # this parameters can added to an existing node
-      postinstall_script = data.template_file.test.rendered
+      node_labels        = {}
+      vm_tags            = {}
+      postinstall_script =  data.template_file.test.rendered
       preinstall_script  = null
+      taints             = []
     }
   ]
 }
