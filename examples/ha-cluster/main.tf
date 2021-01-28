@@ -1,0 +1,37 @@
+module "cce2_cluster" {
+  source  = "FlexibleEngineCloud/cce/flexibleengine"
+  version = "2.3.1"
+
+  cluster_name      = "cluster-test"
+  cluster_desc      = " Cluster for testing purpose"
+  
+  cluster_flavor  = "cce.s2.small"
+  vpc_id          = "<VPC_ID>"
+  network_id      = "<NETWORK_ID>" //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
+  cluster_version = "v1.15.6-r1"
+  extend_param = {
+    clusterAZ = "multi_az"
+  }
+
+
+  node_os  = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+  key_pair = "<SSH_KEY_NAME>"
+
+  nodes_list = [
+    {
+      node_index         = "node0"
+      node_name          = "cce-node1"
+      node_flavor        = "s3.large.2"
+      availability_zone  = "eu-west-0a"
+      root_volume_type   = "SATA"
+      root_volume_size   = 40
+      data_volume_type   = "SATA"
+      data_volume_size   = 100
+      node_labels        = {}
+      vm_tags            = {}
+      postinstall_script = null
+      preinstall_script  = null
+      taints             = []
+    }
+  ]
+}
