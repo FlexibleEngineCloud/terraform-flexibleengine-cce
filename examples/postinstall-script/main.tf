@@ -26,7 +26,7 @@ module "cce2_cluster" {
       data_volume_size   = 100
       node_labels        = {}
       vm_tags            = {}
-      postinstall_script =  data.template_file.test.rendered
+      postinstall_script = data.template_file.test.rendered
       preinstall_script  = null
       taints             = []
     }

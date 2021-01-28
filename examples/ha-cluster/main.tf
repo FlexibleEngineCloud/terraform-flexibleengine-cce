@@ -2,9 +2,9 @@ module "cce2_cluster" {
   source  = "FlexibleEngineCloud/cce/flexibleengine"
   version = "2.3.1"
 
-  cluster_name      = "cluster-test"
-  cluster_desc      = " Cluster for testing purpose"
-  
+  cluster_name = "cluster-test"
+  cluster_desc = " Cluster for testing purpose"
+
   cluster_flavor  = "cce.s2.small"
   vpc_id          = "<VPC_ID>"
   network_id      = "<NETWORK_ID>" //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
