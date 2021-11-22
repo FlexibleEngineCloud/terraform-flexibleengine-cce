@@ -272,6 +272,7 @@ inputs = {
 | cluster\_eip | EIP of the cluster | `string` | `null` | no |
 | cluster\_flavor | Flavor of the CCE2 Cluster | `string` | n/a | yes |
 | cluster\_name | Name of the cluster | `string` | n/a | yes |
+| cluster\_type | Cluster Type, possible values are VirtualMachine and BareMetal | `string` | VirtualMachine | no |
 | cluster\_version | Version of the cluster | `string` | n/a | yes |
 | extend\_param | Extended Parameters | `map(string)` | `{}` | no |
 | key\_pair | Name of the SSH key pair | `string` | n/a | yes |

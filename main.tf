@@ -1,6 +1,6 @@
 resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   name                   = var.cluster_name
-  cluster_type           = "VirtualMachine"
+  cluster_type           = var.cluster_type
   cluster_version        = var.cluster_version
   flavor_id              = var.cluster_flavor
   vpc_id                 = var.vpc_id

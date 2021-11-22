@@ -13,6 +13,11 @@ variable "cluster_desc" {
   type        = string
 }
 
+variable "cluster_type" {
+  description	= "Cluster Type, possible values are VirtualMachine and BareMetal"
+  type		= string
+  default	= "VirtualMachine"
+}
 variable "cluster_eip" {
   description = "EIP of the cluster"
   type        = string
