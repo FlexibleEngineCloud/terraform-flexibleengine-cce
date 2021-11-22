@@ -81,7 +81,7 @@ resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   scale_down_cooldown_time = each.value.scale_down_cooldown_time
   priority                 = each.value.priority
 
-  type = "vm"
+  type = each.value.type
 
   postinstall = each.value.postinstall_script
   preinstall  = each.value.preinstall_script

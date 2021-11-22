@@ -109,6 +109,7 @@ variable "node_pool_list" {
     priority                 = number
     root_volume_size         = number
     root_volume_type         = string
+    type                     = string
     data_volume_size         = number
     data_volume_type         = string
     node_labels              = map(string)
