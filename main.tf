@@ -1,6 +1,6 @@
 resource "flexibleengine_cce_cluster_v3" "cce_cluster" {
   name                   = var.cluster_name
-  cluster_type           = "VirtualMachine"
+  cluster_type           = var.cluster_type
   cluster_version        = var.cluster_version
   flavor_id              = var.cluster_flavor
   vpc_id                 = var.vpc_id
@@ -81,7 +81,7 @@ resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   scale_down_cooldown_time = each.value.scale_down_cooldown_time
   priority                 = each.value.priority
 
-  type = "vm"
+  type = each.value.type
 
   postinstall = each.value.postinstall_script
   preinstall  = each.value.preinstall_script

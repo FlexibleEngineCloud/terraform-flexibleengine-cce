@@ -13,6 +13,12 @@ variable "cluster_desc" {
   type        = string
 }
 
+variable "cluster_type" {
+  description = "Cluster Type, possible values are VirtualMachine and BareMetal"
+  type        = string
+  default     = "VirtualMachine"
+}
+
 variable "cluster_eip" {
   description = "EIP of the cluster"
   type        = string
@@ -104,6 +110,7 @@ variable "node_pool_list" {
     priority                 = number
     root_volume_size         = number
     root_volume_type         = string
+    type                     = string
     data_volume_size         = number
     data_volume_type         = string
     node_labels              = map(string)
