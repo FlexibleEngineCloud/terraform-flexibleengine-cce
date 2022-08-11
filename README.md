@@ -289,3 +289,5 @@ inputs = {
 | cluster\_id | ID of the Cluster created |
 | nodes\_ip | List of nodes IP adresses |
 | nodes\_list | List of nodes |
+| cce\_certificate\_clusters | Cluster certificate data and keys |
+| cce\_certificate\_users | User certificate data and keys |
