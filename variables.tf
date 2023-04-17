@@ -28,7 +28,7 @@ variable "cluster_eip" {
 variable "container_network_type" {
   description = "Network type of the container"
   type        = string
-  default     = overlay_l2
+  default     = "overlay_l2"
 }
 
 variable "availability_zone" {
