@@ -25,6 +25,12 @@ variable "cluster_eip" {
   default     = null
 }
 
+variable "container_network_type" {
+  description = "Network type of the container"
+  type        = string
+  default     = overlay_l2
+}
+
 variable "availability_zone" {
   description = "Availability Zone used to deploy"
   default     = "eu-west-0a"
