@@ -109,7 +109,7 @@ variable "node_pool_list" {
     node_flavor              = string
     availability_zone        = string
     initial_node_count       = number
-    scall_enable             = bool
+    scale_enable             = bool
     min_node_count           = number
     max_node_count           = number
     scale_down_cooldown_time = number
