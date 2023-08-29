@@ -87,7 +87,7 @@ module "cce2_cluster" {
         node_flavor              = "s3.large.2"
         availability_zone        = null
         initial_node_count       = 1
-        scall_enable             = true
+        scale_enable             = true
         min_node_count           = 1
         max_node_count           = 3
         scale_down_cooldown_time = null
@@ -212,7 +212,7 @@ inputs = {
       node_flavor              = "s3.large.2"
       availability_zone        = null
       initial_node_count       = 1
-      scall_enable             = true
+      scale_enable             = true
       min_node_count           = 1
       max_node_count           = 3
       scale_down_cooldown_time = null
@@ -279,7 +279,7 @@ inputs = {
 | key\_pair                | Name of the SSH key pair | `string` | n/a | yes |
 | network\_id              | ID of the Network | `string` | n/a | yes |
 | node\_os                 | Operating System of the CCE Worker Node | `string` | n/a | yes |
-| node\_pool\_list         | Nodes poool list of the CCE2 Cluster | <pre>list(object({<br>    node_pool_index          = string<br>    node_pool_name           = string<br>    node_flavor              = string<br>    availability_zone        = string<br>    initial_node_count       = number<br>    scall_enable             = bool<br>    min_node_count           = number<br>    max_node_count           = number<br>    scale_down_cooldown_time = number<br>    priority                 = number<br>    root_volume_size         = number<br>    root_volume_type         = string<br>   type			= string<br>	data_volume_size         = number<br>    data_volume_type         = string<br>    node_labels              = map(string)<br>    taints = list(object({<br>      key    = string<br>      value  = string<br>      effect = string<br>    }))<br>    postinstall_script = string<br>    preinstall_script  = string<br>  }))</pre> | `[]` | no |
+| node\_pool\_list         | Nodes poool list of the CCE2 Cluster | <pre>list(object({<br>    node_pool_index          = string<br>    node_pool_name           = string<br>    node_flavor              = string<br>    availability_zone        = string<br>    initial_node_count       = number<br>    scale_enable             = bool<br>    min_node_count           = number<br>    max_node_count           = number<br>    scale_down_cooldown_time = number<br>    priority                 = number<br>    root_volume_size         = number<br>    root_volume_type         = string<br>   type			= string<br>	data_volume_size         = number<br>    data_volume_type         = string<br>    node_labels              = map(string)<br>    taints = list(object({<br>      key    = string<br>      value  = string<br>      effect = string<br>    }))<br>    postinstall_script = string<br>    preinstall_script  = string<br>  }))</pre> | `[]` | no |
 | nodes\_list              | Nodes list of the CCE2 Cluster | <pre>list(object({<br>    node_index        = string<br>    node_name         = string<br>    node_flavor       = string<br>    availability_zone = string<br>    root_volume_size  = number<br>    root_volume_type  = string<br>    data_volume_size  = number<br>    data_volume_type  = string<br>    node_labels       = map(string)<br>    vm_tags           = map(string)<br>    taints = list(object({<br>      key    = string<br>      value  = string<br>      effect = string<br>    }))<br>    postinstall_script = string<br>    preinstall_script  = string<br>  }))</pre> | `[]` | no |
 | vpc\_id                  | ID of the VPC | `string` | n/a | yes |
 

@@ -75,7 +75,7 @@ resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   key_pair          = var.key_pair
 
   initial_node_count       = each.value.initial_node_count
-  scall_enable             = each.value.scall_enable
+  scale_enable             = each.value.scale_enable
   min_node_count           = each.value.min_node_count
   max_node_count           = each.value.max_node_count
   scale_down_cooldown_time = each.value.scale_down_cooldown_time
