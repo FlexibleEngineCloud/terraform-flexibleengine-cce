@@ -87,6 +87,7 @@ resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   preinstall  = each.value.preinstall_script
 
   labels = each.value.node_labels
+  tags   = each.value.vm_tags
 
   root_volume {
     size       = each.value.root_volume_size

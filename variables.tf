@@ -125,6 +125,7 @@ variable "node_pool_list" {
       value  = string
       effect = string
     }))
+    vm_tags            = map(string)
     postinstall_script = string
     preinstall_script  = string
   }))
