@@ -23,8 +23,9 @@ module "cce2_cluster" {
     network_id = "<NETWORK_ID>"  //Caution here, you have to use NETWORK_ID even if argument is "subnet_id". Will be fixed soon
     cluster_version = "v1.15.6-r1"
 
-    node_os  = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
-    key_pair = "my-key"
+    node_os      = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+    node_runtime = "containerd // Valid values are docker and containerd"
+    key_pair     = "my-key"
  
     nodes_list = [
       {
@@ -149,6 +150,7 @@ inputs = {
   cluster_flavor  = "cce.s1.small"
   cluster_version = "v1.15.6-r1"
   node_os         = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
+  node_runtime    = "containerd // Valid values are docker and containerd"
   key_pair        = "my-key"
 
   nodes_list = [

@@ -65,6 +65,12 @@ variable "node_os" {
   type        = string
 }
 
+variable "node_runtime" {
+  description = "Runtime of the CCE Worker Node. Valid values are docker and containerd."
+  type        = string
+  default     = "containerd"
+}
+
 variable "key_pair" {
   description = "Name of the SSH key pair"
   type        = string

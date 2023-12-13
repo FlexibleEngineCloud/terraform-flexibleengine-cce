@@ -28,6 +28,7 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   name       = each.value.node_name
   flavor_id  = each.value.node_flavor
   os         = var.node_os
+  runtime    = var.node_runtime
 
   availability_zone = each.value.availability_zone
   key_pair          = var.key_pair
@@ -69,6 +70,7 @@ resource "flexibleengine_cce_node_pool_v3" "cce_node_pool" {
   cluster_id = flexibleengine_cce_cluster_v3.cce_cluster.id
   name       = each.value.node_pool_name
   os         = var.node_os
+  runtime    = var.node_runtime
 
   flavor_id         = each.value.node_flavor
   availability_zone = each.value.availability_zone
