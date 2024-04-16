@@ -40,7 +40,7 @@ resource "flexibleengine_cce_node_v3" "cce_cluster_node" {
   labels = each.value.node_labels
   tags   = each.value.vm_tags
 
-  annotations= each.value.annotations
+  annotations = each.value.annotations
 
   root_volume {
     size       = each.value.root_volume_size
