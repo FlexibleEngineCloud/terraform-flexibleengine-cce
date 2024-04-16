@@ -76,6 +76,12 @@ variable "key_pair" {
   type        = string
 }
 
+variable "annotations" {
+  description = "Cluster annotation, key/value pair format"
+  type        = map(string)
+  default     = {}
+}
+
 variable "extend_param" {
   description = "Extended Parameters"
   type        = map(string)
