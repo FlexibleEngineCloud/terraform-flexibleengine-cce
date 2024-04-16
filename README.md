@@ -26,6 +26,8 @@ module "cce2_cluster" {
     node_os      = "CentOS 7.5" // Can be "EulerOS 2.5" or "CentOS 7.5"
     node_runtime = "containerd // Valid values are docker and containerd"
     key_pair     = "my-key"
+
+    annotations  = { "cluster.install.addons.external/install": "[{\"addonTemplateName\":\"icagent\"}]" }
  
     nodes_list = [
       {
