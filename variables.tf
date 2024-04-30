@@ -109,6 +109,7 @@ variable "nodes_list" {
     }))
     postinstall_script = string
     preinstall_script  = string
+    annotations        = map(string)
   }))
 }
 
